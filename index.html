@@ -43,62 +43,46 @@
         <div><img src="./assets/hero-leaf2.png"></div>
     </section>
 
-    <!-- Main Content -->
-    <section class="mt-[100px]  grid md:grid-cols-4 gap-6 px-6 py-12 max-w-7xl mx-auto">
+<!-- Main Content -->
+<section class="mt-24 w-full mx-auto max-w-[1650px]">
+    <div class="grid gap-6 px-4 md:px-6 xl:grid-cols-12">
+
         <!-- Categories -->
-        <div class="md:col-span-1">
+        <div class="bg-white shadow rounded-xl p-4 xl:col-span-2">
             <h3 class="font-semibold mb-4 text-2xl">Categories</h3>
-            <ul id="CategorieContainer" class=" text-gray-600">
-               
-    <li id="" class="w-[250px] text-2xl hover:bg-green-900 p-3  hover:text-white rounded-lg ">All Trees</li>
-
-
+            <ul id="CategorieContainer" class="text-gray-600 space-y-2">
+                <li class="w-full text-xl hover:bg-green-900 p-3 hover:text-white rounded-lg">All Trees</li>
             </ul>
         </div>
 
         <!-- Trees Cards -->
-        <div class="md:col-span-2 grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
-            <div class="bg-white shadow rounded-xl p-4 text-center">
-                <div class="h-32 bg-gray-200 rounded-lg mb-4"></div>
-                <h4 class="font-semibold mb-2">Mango Tree</h4>
-                <p class="text-sm text-gray-600 mb-4">Provides shade and sweet fruits.</p>
-                <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg">Add to Cart</button>
-            </div>
+        <main class="xl:col-span-8">
+            <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="bg-white shadow rounded-xl p-4 text-center">
-                <div class="h-32 bg-gray-200 rounded-lg mb-4"></div>
-                <h4 class="font-semibold mb-2">Neem Tree</h4>
-                <p class="text-sm text-gray-600 mb-4">Medicinal properties & natural air purifier.</p>
-                <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg">Add to Cart</button>
-            </div>
+               
+         
 
-            <div class="bg-white shadow rounded-xl p-4 text-center">
-                <div class="h-32 bg-gray-200 rounded-lg mb-4"></div>
-                <h4 class="font-semibold mb-2">Banyan Tree</h4>
-                <p class="text-sm text-gray-600 mb-4">Sacred tree providing large shade.</p>
-                <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg">Add to Cart</button>
             </div>
-
-            <div class="bg-white shadow rounded-xl p-4 text-center">
-                <div class="h-32 bg-gray-200 rounded-lg mb-4"></div>
-                <h4 class="font-semibold mb-2">Guava Tree</h4>
-                <p class="text-sm text-gray-600 mb-4">Healthy fruits rich in Vitamin C.</p>
-                <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg">Add to Cart</button>
-            </div>
-        </div>
+        </main>
 
         <!-- Cart -->
-        <aside class="md:col-span-1 bg-white shadow rounded-xl p-4">
+        <aside class="bg-white shadow rounded-xl p-4 xl:col-span-2">
             <h3 class="font-semibold mb-4">Your Cart</h3>
             <ul class="space-y-2 text-gray-600">
                 <li>Mango Tree x1</li>
                 <li>Neem Tree x2</li>
             </ul>
             <div class="border-t mt-4 pt-4">
-                <p class="flex justify-between"><span>Total:</span><span>$1000</span></p>
+                <p class="flex justify-between">
+                    <span>Total:</span><span>$1000</span>
+                </p>
             </div>
         </aside>
-    </section>
+
+    </div>
+</section>
+
+
 
     <!-- About Campaign -->
     <section class="px-6 py-12 max-w-6xl mx-auto  items-center">
