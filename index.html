@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth | Plant a Tree</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="font-sans bg-[#f0fdf4] mx-w[1920px] mx-auto">
@@ -43,6 +45,9 @@
         <div><img src="./assets/hero-leaf2.png"></div>
     </section>
 
+    <div id="spinner" class="hidden text-center mt-7  ">
+        <span class="loading loading-dots loading-xl"></span>
+    </div>
 <!-- Main Content -->
 <section class="mt-24 w-full mx-auto max-w-[1650px]">
     <div class="grid gap-6 px-4 md:px-6 xl:grid-cols-12">
@@ -50,18 +55,19 @@
         <!-- Categories -->
         <div class="bg-white shadow rounded-xl p-4 xl:col-span-2">
             <h3 class="font-semibold mb-4 text-2xl">Categories</h3>
+
+
             <ul id="CategorieContainer" class="text-gray-600 space-y-2">
                 <li class="w-full text-xl hover:bg-green-900 p-3 hover:text-white rounded-lg">All Trees</li>
             </ul>
         </div>
 
+
+        
         <!-- Trees Cards -->
         <main class="xl:col-span-8">
+            <!-- Spinner -->
             <div id="plantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-               
-         
-
             </div>
         </main>
 
@@ -130,9 +136,9 @@
     <section class="bg-green-800 text-white py-12 px-6 text-center">
         <h3 class="text-2xl font-bold mb-6">Plant a Tree Today</h3>
         <form class="max-w-[650px] mx-auto p-10 bg-[#15803d] shadow-lg rounded-lg ">
-            <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded-lg text-gray-800" />
-            <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded-lg text-gray-800 mt-3" />
-            <select class="w-full px-4 py-2 rounded-lg text-gray-800 mt-3">
+            <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded-lg text-gray-800 bg-white"/>
+            <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded-lg text-gray-800 mt-3 bg-white" />
+            <select class="w-full px-4 py-2 rounded-lg text-gray-800 mt-3 bg-white">
                 <option>Number of Trees</option>
                 <option>1</option>
                 <option>5</option>
