@@ -124,7 +124,7 @@ plantsContainer.addEventListener('click', (e) => {
         removeBtn.addEventListener('click', () => {
             itemDiv.remove();
             totalPrice -= price;
-            totalPriceEl.textContent = `$ ${totalPrice.toFixed(2)}`;
+            totalPriceEl.textContent = `$ ${totalPrice.toFixed(0)}`;
         });
 
         const flexContainer = document.createElement('div');
