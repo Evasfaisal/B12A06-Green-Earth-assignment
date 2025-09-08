@@ -6,19 +6,18 @@ const totalPriceEl = cartContainer.querySelector('.total-price');
 const spinner = document.getElementById('spinner');
 let totalPrice = 0;
 
-// Load Categories
+
 const loadCategory = () => {
-    spinner.classList.remove('hidden'); 
+    spinner.classList.remove('hidden');
     fetch('https://openapi.programming-hero.com/api/categories')
         .then(res => res.json())
         .then(data => {
-            const categories =data.categories;
+            const categories = data.categories;
             showCategories(categories);
         })
         .catch(err => console.error(err));
 }
 
-// Show Categories
 const showCategories = (categories) => {
     categorieContainer.innerHTML = '';
     categories.forEach(cat => {
@@ -31,7 +30,6 @@ const showCategories = (categories) => {
     spinner.classList.add('hidden');
 }
 
-// Category click
 categorieContainer.addEventListener('click', (e) => {
     if (e.target.localName === "li") {
         const allLi = categorieContainer.querySelectorAll('li');
@@ -42,20 +40,38 @@ categorieContainer.addEventListener('click', (e) => {
     }
 });
 
-// Load Plants
 const loadPlantsByCategory = (fruitId) => {
-    spinner.classList.remove('hidden'); // 
+    spinner.classList.remove('hidden');  
     fetch(`https://openapi.programming-hero.com/api/category/${fruitId}`)
         .then(res => res.json())
         .then(data => {
-            const plants = data.data || data.plants;
+            const plants =  data.plants;
             showPlantsByCatagory(plants);
+            spinner.classList.add('hidden'); 
+
         })
         .catch(err => console.error(err))
-        .finally(() => spinner.classList.add('hidden')); 
+      
 }
 
-// Show Plants
+const loadAllPlants = () => {
+    spinner.classList.remove('hidden');
+    fetch('https://openapi.programming-hero.com/api/plants')
+        .then(res => res.json())
+        .then(data => {
+            showPlantsByCatagory(data.plants);
+            spinner.classList.add('hidden');
+
+        })
+    
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadCategory(); 
+    loadAllPlants(); 
+});
+
+
 const showPlantsByCatagory = (plants) => {
     plantsContainer.innerHTML = '';
     plants.forEach(plant => {
@@ -66,7 +82,7 @@ const showPlantsByCatagory = (plants) => {
                 </div>
                 <h4 id="${plant.id}" class="font-semibold text-lg mb-1">${plant.name}</h4>
  <!-- Description -->
-                <p class="text-sm text-gray-600 mb-4">${plant.description}
+                <p class="text-sm text-gray-600 mb-4 h-[100px]">${plant.description}
                 </p>
 
 
@@ -74,7 +90,7 @@ const showPlantsByCatagory = (plants) => {
                     <span class="bg-green-100 text-green-600 text-sm px-3 py-1 rounded-full">Fruit Tree</span>
                     <span class="plant-price font-semibold">${plant.price}</span>
                 </div>
-                <button class="btn bg-green-700 hover:bg-green-800 text-white w-full py-3 rounded-full font-medium">
+                <button class="btn bg-green-700 hover:bg-green-800 text-white w-full  py-3 rounded-full font-medium">
                     Add to Cart
                 </button>
             </div>
@@ -82,7 +98,6 @@ const showPlantsByCatagory = (plants) => {
     });
 }
 
-// Add to Cart
 plantsContainer.addEventListener('click', (e) => {
     if (e.target.innerText === 'Add to Cart') {
         const card = e.target.parentNode;
@@ -127,4 +142,28 @@ plantsContainer.addEventListener('click', (e) => {
     }
 })
 
+plantsContainer.addEventListener('click', (e) => {
+
+
+    if (e.target.tagName === 'H4') {
+        const plantId = e.target.id;
+        fetch(`https://openapi.programming-hero.com/api/plants`) 
+            .then(res => res.json())
+            .then(data => {
+                const tree = data.plants;
+              const  plant = tree.find(p => p.id == plantId);
+               
+
+                document.getElementById('modalImage').src = plant.image;
+                document.getElementById('modalTitle').textContent = plant.name;
+                document.getElementById('modalCategory').textContent = plant.category;
+                document.getElementById('modalPrice').textContent = `$ ${plant.price}`;
+                document.getElementById('modalDesc').textContent = plant.description;
+
+                document.getElementById('my_modal_5').showModal();
+
+            });
+    }
+
+    })
 loadCategory();
